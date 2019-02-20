@@ -10,27 +10,22 @@
  */
 
 
-Polinomio::Polinomio() {
-    _orden = -1;
-    _variable ='X';
-    _polCabeza = NULL;
-}
-
-/**
- * @param pol
- */
-Polinomio::Polinomio(string pol) {
+void Polinomio::Polinomio() {
 
 }
 
 /**
  * @param pol
  */
-Polinomio::Polinomio(Polinomio& pol) {
-    _orden = pol._orden;
-    _variable = pol._variable;
-    // Falta copiar los terminos
-    _polCabeza = NULL;
+void Polinomio::Polinomio(string pol) {
+
+}
+
+/**
+ * @param pol
+ */
+void Polinomio::Polinomio(Polinomio& pol) {
+
 }
 
 /**
@@ -39,12 +34,7 @@ Polinomio::Polinomio(Polinomio& pol) {
  * @return void
  */
 void Polinomio::nuevoTermino(float c, int p) {
-    Termino* nuevo = new Termino(c,p);
-    Termino* temp = _polCabeza;
-    while(temp != NULL)
-        temp = temp->getSiguiente();
-
-    temp->setSiguiente( nuevo );
+    return;
 }
 
 /**
@@ -65,36 +55,32 @@ bool Polinomio::ordenar() {
  * @param p
  * @return Polinomio&
  */
-Polinomio Polinomio::operator +(Polinomio& p) {
-    Polinomio res = Polinomio();
-    return res;
+Polinomio& Polinomio::operator +(Polinomio& p) {
+    return null;
 }
 
 /**
  * @param p
  * @return Polinomio&
  */
-Polinomio Polinomio::operator -(Polinomio& p) {
-    Polinomio res = Polinomio();
-    return res;
+Polinomio& Polinomio::operator -(Polinomio& p) {
+    return null;
 }
 
 /**
  * @param p
  * @return Polinomio&
  */
-Polinomio Polinomio::operator  *(Polinomio& p) {
-    Polinomio res = Polinomio();
-    return res;
+Polinomio& Polinomio::operator  *(Polinomio& p) {
+    return null;
 }
 
 /**
  * @param f
  * @return Polinomio&
  */
-Polinomio Polinomio::operator /(float f) {
-    Polinomio res = Polinomio();
-    return res;
+Polinomio& Polinomio::operator /(float f) {
+    return null;
 }
 
 /**
@@ -115,11 +101,9 @@ bool Polinomio::redefinir(string pol) {
 /**
  * @return float
  */
-int Polinomio::getOrden() {
+float Polinomio::getOrden() {
     return 0.0;
 }
-
-
 
 /**
  * @return char
@@ -132,5 +116,9 @@ char Polinomio::getVariable() {
  * @param value
  */
 void Polinomio::setVariable(char value) {
+
+}
+
+void Polinomio::Polinomio() {
 
 }
