@@ -4,28 +4,48 @@
 
 
 #include "Polinomio.h"
+#include "Termino.h"
+#include <iterator>
 
 /**
  * Polinomio implementation
  */
 
 
-void Polinomio::Polinomio() {
-
+Polinomio::Polinomio() {
+    _orden = -1;
+    _variable ='X';
+    _polCabeza = NULL;
 }
 
 /**
  * @param pol
  */
-void Polinomio::Polinomio(string pol) {
+Polinomio::Polinomio(string pol) {
+    Polinomio a;
+    string ter_1;
+    string:: iterator y;
+    size_t posicion =0;
+    size_t pos_anterior = 0;
+    //w = pol.size();
+    while (y = !pol.end()) {
 
+    posicion = (pol.find("+",posicion) || string.find("-",posicion));
+    pos_anterior = posicion;
+    ter_1 = pol.substr(pos_anterior,posicion);
+
+
+    }
 }
 
 /**
  * @param pol
  */
-void Polinomio::Polinomio(Polinomio& pol) {
-
+Polinomio::Polinomio(Polinomio& pol) {
+    _orden = pol._orden;
+    _variable = pol._variable;
+    // Falta copiar los terminos
+    _polCabeza = NULL;
 }
 
 /**
@@ -34,7 +54,12 @@ void Polinomio::Polinomio(Polinomio& pol) {
  * @return void
  */
 void Polinomio::nuevoTermino(float c, int p) {
-    return;
+    Termino* nuevo = new Termino(c,p);
+    Termino* temp = _polCabeza;
+    while(temp != NULL)
+        temp = temp->getSiguiente();
+
+    temp->setSiguiente( nuevo );
 }
 
 /**
@@ -55,32 +80,36 @@ bool Polinomio::ordenar() {
  * @param p
  * @return Polinomio&
  */
-Polinomio& Polinomio::operator +(Polinomio& p) {
-    return null;
+Polinomio Polinomio::operator +(Polinomio& p) {
+    Polinomio res = Polinomio();
+    return res;
 }
 
 /**
  * @param p
  * @return Polinomio&
  */
-Polinomio& Polinomio::operator -(Polinomio& p) {
-    return null;
+Polinomio Polinomio::operator -(Polinomio& p) {
+    Polinomio res = Polinomio();
+    return res;
 }
 
 /**
  * @param p
  * @return Polinomio&
  */
-Polinomio& Polinomio::operator  *(Polinomio& p) {
-    return null;
+Polinomio Polinomio::operator  *(Polinomio& p) {
+    Polinomio res = Polinomio();
+    return res;
 }
 
 /**
  * @param f
  * @return Polinomio&
  */
-Polinomio& Polinomio::operator /(float f) {
-    return null;
+Polinomio Polinomio::operator /(float f) {
+    Polinomio res = Polinomio();
+    return res;
 }
 
 /**
@@ -101,9 +130,11 @@ bool Polinomio::redefinir(string pol) {
 /**
  * @return float
  */
-float Polinomio::getOrden() {
+int Polinomio::getOrden() {
     return 0.0;
 }
+
+
 
 /**
  * @return char
@@ -116,9 +147,5 @@ char Polinomio::getVariable() {
  * @param value
  */
 void Polinomio::setVariable(char value) {
-
-}
-
-void Polinomio::Polinomio() {
 
 }

@@ -5,8 +5,9 @@
 
 #ifndef _POLINOMIO_H
 #define _POLINOMIO_H
-#include "Termino.h"
 #include <string>
+#include <vector>
+#include "Termino.h"
 
 using namespace std;
 

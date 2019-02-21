@@ -5,6 +5,8 @@
 
 #ifndef _TERMINO_H
 #define _TERMINO_H
+#include <string>
+
 
 class Termino {
   private:
@@ -14,8 +16,7 @@ class Termino {
     Termino();
 
   public:
-    Termino(float c, int p);
-    float getC(){return _coeficiente;}
+    //float getC(){return _coeficiente;}
     int getP(){return _potencia;}
     void setCP(float& c, int& p){_coeficiente = c; _potencia = p; _siguiente = nullptr;}
     void setSiguiente(Termino* ptr){_siguiente = ptr;}

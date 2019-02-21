@@ -20,6 +20,10 @@ void Termino::Termino(float c, int p) {
 
 }
 
+void Termino::Termino(string ter){
+
+}
+
 /**
  * @return float
  */
