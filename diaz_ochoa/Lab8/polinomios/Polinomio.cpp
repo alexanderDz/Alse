@@ -5,7 +5,6 @@
 
 #include "Polinomio.h"
 #include "Termino.h"
-#include <iterator>
 
 /**
  * Polinomio implementation
@@ -24,13 +23,11 @@ Polinomio::Polinomio() {
 Polinomio::Polinomio(string pol) {
     Polinomio a;
     string ter_1;
-    string:: iterator y;
     size_t posicion =0;
     size_t pos_anterior = 0;
-    //w = pol.size();
-    while (y = !pol.end()) {
+    while (!pol.find('\0') ) {
 
-    posicion = (pol.find("+",posicion) || string.find("-",posicion));
+    posicion = (pol.find("+",posicion) || pol.find("-",posicion));
     pos_anterior = posicion;
     ter_1 = pol.substr(pos_anterior,posicion);
 
