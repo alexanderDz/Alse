@@ -16,7 +16,10 @@ class Termino {
     Termino();
 
   public:
-    //float getC(){return _coeficiente;}
+    //Termino(string term);
+    Termino(float c, int p);
+
+    float getC(){return _coeficiente;}
     int getP(){return _potencia;}
     void setCP(float& c, int& p){_coeficiente = c; _potencia = p; _siguiente = nullptr;}
     void setSiguiente(Termino* ptr){_siguiente = ptr;}

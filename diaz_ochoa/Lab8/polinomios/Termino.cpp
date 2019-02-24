@@ -4,6 +4,7 @@
 
 
 #include "Termino.h"
+#include <string>
 
 /**
  * Termino implementation
@@ -14,39 +15,13 @@
  * @param c
  * @param p
  */
-void Termino::Termino(float c, int p) {
+Termino::Termino(float c, int p) {
     _coeficiente = c;
     _potencia = p;
 
 }
 
-void Termino::Termino(string ter){
+//Termino::Termino(string ter){
 
-}
+//}
 
-/**
- * @return float
- */
-
-
-/**
- * @return int
- */
-
-
-/**
- * @param c
- * @param p
- * @return void
- */
-
-
-/**
- * @param ptr
- * @return void
- */
-
-
-/**
- * @return Termino*
- */
