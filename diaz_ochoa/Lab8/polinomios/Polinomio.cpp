@@ -173,6 +173,7 @@ Polinomio& Polinomio::operator  *(Polinomio& p) {
 Polinomio &Polinomio::operator /(float f) {
     Polinomio* res = new Polinomio();
     Termino* temp = _polCabeza;
+    res->setVariable(_variable);
     if(temp != NULL){
         float newCoeff = 0.;
         int newPow = 0.;
