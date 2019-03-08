@@ -172,21 +172,20 @@ Polinomio& Polinomio::operator  *(Polinomio& p) {
  * @return Polinomio&
  */
 Polinomio& Polinomio::operator /(float f) {
-    Polinomio* res = new Polinomio(*this);
-    Termino* temp = res->_polCabeza;
-    if(temp != NULL){
-        float newCoeff = 0.;
-        int newPow = 0;
-
-        while ( temp->getSiguiente() != NULL ){
-            newCoeff = temp->getC() / f;
-            newPow = temp->getP();
-            temp->setCP( newCoeff, newPow );
-            temp = temp->getSiguiente();
-        }
-
+    Polinomio* res = new Polinomio();
+        Termino* temp = _polCabeza;
+        res->setVariable(_variable);
+        if(temp != NULL){
+            float newCoeff = 0.;
+            while ( temp != NULL ){
+                newCoeff = temp->getC() / f;
+                res->nuevoTermino(newCoeff,temp->getP());
+                temp = temp->getSiguiente();
+            }
     }
 
+    res->ordenar();
+    res->simplificar();
     return *res;
 }
 

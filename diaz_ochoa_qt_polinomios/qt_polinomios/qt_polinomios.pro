@@ -27,15 +27,17 @@ SOURCES += \
         main.cpp \
         polinomios.cpp \
         ../polinomios/Polinomio.cpp \
-        ../polinomios/Termino.cpp
+        ../polinomios/Termino.cpp \
+    division.cpp
 
 
 HEADERS += \
         polinomios.h    \
         ../polinomios/Polinomio.h \
-        ../polinomios/Termino.h
+        ../polinomios/Termino.h \
+    division.h
 
 
 FORMS += \
         polinomios.ui \
-        polinomios_dlg.ui
+    division.ui

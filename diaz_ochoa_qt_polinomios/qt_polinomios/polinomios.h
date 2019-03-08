@@ -22,6 +22,10 @@ private slots:
 
     void on__cmdMulti_clicked();
 
+    void on__cmdDivsion_clicked();
+
+    void recibeDatos(bool first, float divisor);
+
 private:
     Ui::Polinomios *ui;
 };
