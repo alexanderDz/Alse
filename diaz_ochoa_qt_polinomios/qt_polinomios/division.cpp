@@ -20,13 +20,16 @@ Division::~Division()
 
 void Division::on_buttonBox_accepted()
 {
-    bool first = ui->_rdbPol1->isChecked() ? true : false;
+     bool first = ui->_rdbPol1->isChecked() ? true : false;
     float divi = ui->_txtDivisor->text().toFloat();
-    emit enviaDatos( first, divi );
+    if(divi != 0) emit enviaDatos( first, divi );
 
 }
 
 void Division::on__txtDivisor_textEdited(const QString &arg1)
 {
-    string a;
+    string text = arg1.toStdString();
+    size_t found = text.find_first_not_of("+-1234567890.");
+    if( found != string::npos )
+        ui->_txtDivisor->setText("");
 }
