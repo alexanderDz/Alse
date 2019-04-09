@@ -25,10 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        leds.cpp
+        leds.cpp \
+    sign_in.cpp \
+    control_leds.cpp
 
 HEADERS += \
-        leds.h
+        leds.h \
+    sign_in.h \
+    control_leds.h
 
 FORMS += \
-        leds.ui
+        leds.ui \
+    sign_in.ui \
+    control_leds.ui

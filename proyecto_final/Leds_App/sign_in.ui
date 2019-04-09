@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>301</width>
-    <height>402</height>
+    <height>367</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>360</y>
-     <width>191</width>
+     <x>-50</x>
+     <y>330</y>
+     <width>341</width>
      <height>32</height>
     </rect>
    </property>
@@ -29,18 +29,18 @@
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>50</y>
-     <width>231</width>
+     <x>20</x>
+     <y>10</y>
+     <width>261</width>
      <height>251</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="label_2">
       <property name="text">
        <string>Nombre</string>
       </property>
@@ -53,7 +53,7 @@
      <widget class="QLineEdit" name="_txtName"/>
     </item>
     <item>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="label_3">
       <property name="text">
        <string>Apellido</string>
       </property>
@@ -66,7 +66,7 @@
      <widget class="QLineEdit" name="_txtLastName"/>
     </item>
     <item>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="label_4">
       <property name="text">
        <string>Documento</string>
       </property>
@@ -79,7 +79,7 @@
      <widget class="QLineEdit" name="_txtNational_id"/>
     </item>
     <item>
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="label_5">
       <property name="text">
        <string>Contraseña</string>
       </property>
