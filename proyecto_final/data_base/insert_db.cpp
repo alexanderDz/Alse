@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
    string sql;
 
    /* Open database */
-   rc = sqlite3_open("test.db", &db);
+   rc = sqlite3_open("user.db", &db);
    
    if( rc ) {
       fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
@@ -31,14 +31,15 @@ int main(int argc, char* argv[]) {
    }
 
    /* Create SQL statement */
-   sql = "INSERT INTO usuario (Nombre, Apellido, user_name, passwd) "  \
-         "VALUES ('Juan','Ovalle','jovalle','jov54'); " \
-         "INSERT INTO usuario (Nombre, Apellido, user_name, passwd) "  \
+   sql = "INSERT INTO usuario (Nombre, Apellido, national_id, user_name, passwd)"   \
+         "VALUES ('Juan','Ovalle',123456789,'jovalle','jov54'); " ;
+        /* "INSERT INTO usuario (Nombre, Apellido, user_name, passwd) "  \
          "VALUES ('Andres','Pardo','apardo','apdo87'); " 
 	 "INSERT INTO usuario (Nombre, Apellido, user_name, passwd) "  \
          "VALUES ('Wilfredo','Pérez','wperez','wp43'); "
 	 "INSERT INTO usuario (Nombre, Apellido, user_name, passwd) "  \
          "VALUES ('Omar','Paez','opaez','opaw34'); " ;
+*/
 
    /* Execute SQL statement */
    rc = sqlite3_exec(db, sql.c_str(), callback, 0, &zErrMsg);

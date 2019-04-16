@@ -1,10 +1,10 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-04-08T17:51:05
+# Project created by QtCreator 2019-04-13T18:18:50
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,15 +26,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         leds.cpp \
-    sign_in.cpp \
-    control_leds.cpp
+    control.cpp
 
 HEADERS += \
         leds.h \
-    sign_in.h \
-    control_leds.h
+    control.h
 
 FORMS += \
         leds.ui \
-    sign_in.ui \
-    control_leds.ui
+    control.ui

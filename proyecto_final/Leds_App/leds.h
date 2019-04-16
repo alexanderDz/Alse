@@ -3,25 +3,33 @@
 
 #include <QMainWindow>
 
+#include<QtSql>
+#include<QtDebug>
+#include<QFileInfo>
+#include<QSqlDatabase>
+#include<QMessageBox>
+
 namespace Ui {
-class leds;
+class Leds;
 }
 
-class leds : public QMainWindow
+class Leds : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit leds(QWidget *parent = 0);
-    ~leds();
+    explicit Leds(QWidget *parent = 0);
+    ~Leds();
 
 private slots:
-    void on__cmdSignUp_clicked();
-
     void on__cmdLog_in_clicked();
 
+    void on__cmdSign_in_clicked();
+
 private:
-    Ui::leds *ui;
+    Ui::Leds *ui;
+    QSqlDatabase db;
+    QSqlQuery *query;
 };
 
 #endif // LEDS_H
