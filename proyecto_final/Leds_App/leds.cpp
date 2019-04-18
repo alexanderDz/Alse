@@ -46,10 +46,13 @@ void Leds::on__cmdLog_in_clicked()
          if(count == 1){
              ui->label_info->setText("Login Correct");
              this->hide();
+             ui->_txtUsr_name->setText("");
+             ui->_txtPswd->setText("");
              Control control;
              control.setModal(true);
              control.exec();
-
+             if(control.close())
+                 this->show();
          }
          if(count < 1){
              QMessageBox::information(this,"Log in","USUARIO O CONTRASEÑA INCORRECTOS");
