@@ -26,12 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         leds.cpp \
-    control.cpp
+    control.cpp \
+    register.cpp
 
 HEADERS += \
         leds.h \
-    control.h
+    control.h \
+    register.h
 
 FORMS += \
         leds.ui \
-    control.ui
+    control.ui \
+    register.ui
