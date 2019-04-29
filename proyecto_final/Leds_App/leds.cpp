@@ -82,7 +82,7 @@ void Leds::on__cmdSign_in_clicked()
   query->bindValue(":user_name",user_name);
   query->bindValue(":psswd",psswd);
 
-if(first_name == "" && last_name == "" && national_id == "" && user_name == "" && psswd == "")
+if(first_name == "" || last_name == "" || national_id == "" || user_name == "" || psswd == "")
     QMessageBox::information(this,"REGISTRO","POR FAVOR LLENE TODOS LOS CAMPOS");
 else{
   if(query->exec()){

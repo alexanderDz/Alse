@@ -1,5 +1,6 @@
 #include "control.h"
 #include "ui_control.h"
+#include <WiringPi.h>
 
 using namespace std;
 enum estado{
@@ -16,6 +17,7 @@ Control::Control(QWidget *parent) :
     ui(new Ui::Control)
 {
     ui->setupUi(this);
+    wiringPiSetup();
 }
 
 Control::~Control()
@@ -34,8 +36,49 @@ void Control::on__cmdSt_1_clicked()
         }else if (est == D){
             est = D;
         }
+    pinMode(0,OUTPUT);
+    pinMode(1,OUTPUT);
+    pinMode(2,OUTPUT);
 
-    //    switch (est)
+    switch (est){
+        case A:
+            digitalWrite(0,LOW);
+            digitalWrite(1,LOW);
+            digitalWrite(2,LOW);
+        break;
+        case B:
+            digitalWrite(0,LOW);
+            digitalWrite(1,LOW);
+            digitalWrite(2,LOW);
+            delay(50);
+            digitalWrite(0,HIGH);
+            digitalWrite(1,HIGH);
+            digitalWrite(2,HIGH);
+        break;
+        case C:
+            digitalWrite(0,HIGH);
+            delay(20);
+            digitalWrite(0,LOW);
+            digitalWrite(1,HIGH);
+            delay(20);
+            digitalWrite(1,LOW);
+            digitalWrite(2,HIGH);
+            delay(20);
+            digitalWrite(2,LOW);
+        break;
+        case D:
+        digitalWrite(2,HIGH);
+        delay(20);
+        digitalWrite(2,LOW);
+        digitalWrite(1,HIGH);
+        delay(20);
+        digitalWrite(1,LOW);
+        digitalWrite(0,HIGH);
+        delay(20);
+        digitalWrite(0,LOW);
+
+        break;
+    }
 }
 
 void Control::on__cmdSt_2_clicked()
