@@ -263,7 +263,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QDateEdit" name="dateEdit">
+       <widget class="QDateEdit" name="_birthdate">
         <property name="displayFormat">
          <string>d/MM/yyyy</string>
         </property>

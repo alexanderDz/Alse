@@ -73,14 +73,19 @@ void Leds::on__cmdSign_in_clicked()
   QString national_id = ui->_txtR_national_id->text();
   QString user_name = ui->_txtR_usrnm->text();
   QString psswd = ui->_txtR_psswd->text();
-  query->prepare("INSERT INTO usuario(Nombre,Apellido,national_id,user_name,password)"
-                 "VALUES(:first_name, :last_name, :national_id, :user_name, :psswd)");
+  QDate date = ui->_birthdate->date();
+  //Calcular la edad
+  int age = QDate::currentDate().year() - date.year();
+  qDebug()<<age;
+  query->prepare("INSERT INTO usuario(Nombre,Apellido,national_id,user_name,password,birth_date)"
+                 "VALUES(:first_name, :last_name, :national_id, :user_name, :psswd, :birth_date)");
 
   query->bindValue(":first_name",first_name);
   query->bindValue(":last_name",last_name);
   query->bindValue(":national_id",national_id.toInt());
   query->bindValue(":user_name",user_name);
   query->bindValue(":psswd",psswd);
+  query->bindValue(":birth_date",date);
 
 if(first_name == "" || last_name == "" || national_id == "" || user_name == "" || psswd == "")
     QMessageBox::information(this,"REGISTRO","POR FAVOR LLENE TODOS LOS CAMPOS");
