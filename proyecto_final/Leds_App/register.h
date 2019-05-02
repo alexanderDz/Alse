@@ -33,11 +33,14 @@ private slots:
 
     void on_buttonBox_accepted();
 
+    int calcular_edad(QDate bd);
+
 private:
     Ui::Register *ui;
     QString first_name;
     QString last_name;
     int national_id;
+    int age;
     QString user_name;
     QString psswd;
     QDate b_date;

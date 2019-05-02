@@ -16,15 +16,13 @@ Leds::Leds(QWidget *parent) :
     if(!db.open())
         ui->label_info->setText("FAILED TO OPEN DATABASE");
     else{
-        ui->label_info->setText("DATABASE OPEN SUCCESFULLY");
-        //query = new QSqlQuery();
+        ui->label_info->setText("DATABASE OPEN SUCCESSFULLY");
     }
 }
 
 Leds::~Leds()
 {
     delete ui;
-    //delete r;
 
 }
 
@@ -34,7 +32,6 @@ void Leds::on__cmdLog_in_clicked()
  QString username = ui->_txtUsr_name->text();
  QString password = ui->_txtPswd->text();
  QSqlQuery query;
- control = new Control(this);
  if(db.open()){
      if(query.exec(" SELECT * FROM usuario WHERE user_name = '"+username+"' AND password = '"+password+"' ")){
          int count = 0;
@@ -42,20 +39,25 @@ void Leds::on__cmdLog_in_clicked()
              count++;
          }
          if(count == 1){
-             this->hide();
              ui->_txtUsr_name->setText("");
              ui->_txtPswd->setText("");
+             this->hide();
+             control = new Control(this);
              control->exec();
-             if(control->close())
+             if(control->close()){
                  this->show();
+             }
+
          }
          if(count < 1){
              QMessageBox::information(this,"Log in","USUARIO O CONTRASEÑA INCORRECTOS");
+             ui->_txtUsr_name->setText("");
+             ui->_txtPswd->setText("");
          }
      }
 
  }else{
-    QMessageBox::information(this,"Database Failed","DATABASE CONNECTION FAILED");
+    QMessageBox::information(this,"CONNECTION","DATABASE CONNECTION FAILED");
  }
 
 

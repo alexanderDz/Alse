@@ -8,7 +8,6 @@
 #include<QSqlDatabase>
 #include<QMessageBox>
 
-#include <QDialog>
 
 namespace Ui {
 class Control;
@@ -34,10 +33,9 @@ private slots:
 
 private:
     Ui::Control *ui;
-    QSqlDatabase *db;
-    int counterB1=0;
-    int counterB2=0;
-    int counterB3=0;
+    int counterB1 = 0;
+    int counterB2 = 0;
+    int counterB3 = 0;
 };
 
 #endif // CONTROL_H

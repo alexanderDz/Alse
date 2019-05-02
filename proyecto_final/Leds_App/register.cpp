@@ -48,6 +48,8 @@ void Register::on__txtR_psswd_textEdited(const QString &arg1)
 void Register::on__birthdate_dateChanged(const QDate &date)
 {
     b_date = date;
+    age = calcular_edad(b_date);
+
 }
 
 void Register::on_buttonBox_accepted()
@@ -55,8 +57,8 @@ void Register::on_buttonBox_accepted()
     QSqlDatabase db;
     db.setDatabaseName(Path_to_DB);
     QSqlQuery query;
-    query.prepare("INSERT INTO usuario(Nombre,Apellido,national_id,user_name,password,birth_date)"
-                   "VALUES(:first_name, :last_name, :national_id, :user_name, :psswd, :birth_date)");
+    query.prepare("INSERT INTO usuario(Nombre,Apellido,national_id,user_name,password,birth_date,age)"
+                   "VALUES(:first_name, :last_name, :national_id, :user_name, :psswd, :birth_date,:age)");
 
     query.bindValue(":first_name",first_name);
     query.bindValue(":last_name",last_name);
@@ -64,6 +66,7 @@ void Register::on_buttonBox_accepted()
     query.bindValue(":user_name",user_name);
     query.bindValue(":psswd",psswd);
     query.bindValue(":birth_date",b_date);
+    query.bindValue(":age",age);
 
     if(query.exec()){
        QMessageBox::information(this,"REGISTRO","DATOS INSERTADOS CORRECTAMENTE");
@@ -73,8 +76,14 @@ void Register::on_buttonBox_accepted()
     db.close();
     db.removeDatabase(db.connectionName());
 }
-//Calcular la edad
-//int age = QDate::currentDate().year() - date.year();
-//if(date.month() > QDate::currentDate().month() || (date.month() == QDate::currentDate().month() && date.day() > QDate::currentDate().day() ) )
-//    age-- ;
-//qDebug()<<age;
+
+int Register::calcular_edad(QDate bd)
+{
+    int age = QDate::currentDate().year() - bd.year();
+    if(bd.month() > QDate::currentDate().month() || (bd.month() == QDate::currentDate().month() && bd.day() > QDate::currentDate().day() ) )
+        age-- ;
+    return age;
+
+
+}
+

@@ -36,7 +36,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>Log in</string>
+     <string/>
     </property>
     <widget class="QPushButton" name="_cmdLog_in">
      <property name="geometry">

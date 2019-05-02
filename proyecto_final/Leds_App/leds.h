@@ -9,8 +9,9 @@
 #include<QSqlDatabase>
 #include<QMessageBox>
 #include<register.h>
-#include"control.h"
-#include"register.h"
+#include<control.h>
+
+
 
 namespace Ui {
 class Leds;
@@ -34,8 +35,6 @@ private slots:
 private:
     Ui::Leds *ui;
     QSqlDatabase db;
-    QString Log_usr;
-    QString Log_psswd;
     Register *r;
     Control *control;
 };
