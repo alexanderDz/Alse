@@ -8,6 +8,9 @@
 #include<QFileInfo>
 #include<QSqlDatabase>
 #include<QMessageBox>
+#include<register.h>
+#include"control.h"
+#include"register.h"
 
 namespace Ui {
 class Leds;
@@ -21,15 +24,20 @@ public:
     explicit Leds(QWidget *parent = 0);
     ~Leds();
 
+
 private slots:
     void on__cmdLog_in_clicked();
 
     void on__cmdSign_in_clicked();
 
+
 private:
     Ui::Leds *ui;
     QSqlDatabase db;
-    QSqlQuery *query;
+    QString Log_usr;
+    QString Log_psswd;
+    Register *r;
+    Control *control;
 };
 
 #endif // LEDS_H
