@@ -29,9 +29,7 @@ Control::~Control()
 
 void Control::on__cmdSt_1_clicked()
 {
-    int c = counterB1;
-    c++;
-    counterB1 = c;
+    counterB1++;
 
     if (est == A){
             est = B;
@@ -89,9 +87,7 @@ void Control::on__cmdSt_1_clicked()
 
 void Control::on__cmdSt_2_clicked()
 {
-    int c = counterB2;
-    c++;
-    counterB2 = c;
+    counterB2++;
 
 
     if (est == A){
@@ -107,9 +103,7 @@ void Control::on__cmdSt_2_clicked()
 
 void Control::on__cmdSt_3_clicked()
 {
-    int c = counterB3;
-    c++;
-    counterB3 = c;
+    counterB3++;
 
     if (est == A){
             est = A;
@@ -125,16 +119,17 @@ void Control::on__cmdSt_3_clicked()
 
 void Control::on__cmdLog_out_clicked()
 {
-  if(counterB1 == 0 && counterB2 == 0 && counterB3 == 0)
+  if(counterB1 == 0 && counterB2 == 0 && counterB3 == 0){
       this->close();
+  }
   else{
     QSqlDatabase db;
     QSqlQuery query;
     QDateTime local = QDateTime::currentDateTime();
     db.setDatabaseName(Path_to_DB);
-    query.prepare("INSERT INTO sensor(date, buttom_1, buttom_2,buttom_3)"
-                  "VALUES(:date, :cb_1, :cb_2, :cb_3)");
+    query.prepare("INSERT INTO sensor(date, user, buttom_1, buttom_2, buttom_3)""VALUES(:date, :user, :cb_1, :cb_2, :cb_3)");
     query.bindValue(":date",local.toString());
+    query.bindValue(":user",username);
     query.bindValue(":cb_1",counterB1);
     query.bindValue(":cb_2",counterB2);
     query.bindValue(":cb_3",counterB3);

@@ -55,11 +55,10 @@ void Register::on__birthdate_dateChanged(const QDate &date)
 void Register::on_buttonBox_accepted()
 {
     QSqlDatabase db;
-    db.setDatabaseName(Path_to_DB);
     QSqlQuery query;
+    db.setDatabaseName(Path_to_DB);
     query.prepare("INSERT INTO usuario(Nombre,Apellido,national_id,user_name,password,birth_date,age)"
                    "VALUES(:first_name, :last_name, :national_id, :user_name, :psswd, :birth_date,:age)");
-
     query.bindValue(":first_name",first_name);
     query.bindValue(":last_name",last_name);
     query.bindValue(":national_id",national_id);

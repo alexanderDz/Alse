@@ -43,6 +43,7 @@ void Leds::on__cmdLog_in_clicked()
              ui->_txtPswd->setText("");
              this->hide();
              control = new Control(this);
+             control->SetUsername(username);
              control->exec();
              if(control->close()){
                  this->show();

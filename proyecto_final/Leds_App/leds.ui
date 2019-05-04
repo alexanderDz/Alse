@@ -29,47 +29,21 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>50</x>
       <y>30</y>
-      <width>251</width>
+      <width>261</width>
       <height>221</height>
      </rect>
     </property>
     <property name="title">
      <string/>
     </property>
-    <widget class="QPushButton" name="_cmdLog_in">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>180</y>
-       <width>101</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Log In</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="_cmdSign_in">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>180</y>
-       <width>101</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Sign In</string>
-     </property>
-    </widget>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
        <y>30</y>
-       <width>211</width>
+       <width>221</width>
        <height>50</height>
       </rect>
      </property>
@@ -94,7 +68,7 @@
       <rect>
        <x>20</x>
        <y>90</y>
-       <width>211</width>
+       <width>221</width>
        <height>50</height>
       </rect>
      </property>
@@ -119,6 +93,32 @@
         </property>
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>180</y>
+       <width>201</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="_cmdSign_in">
+        <property name="text">
+         <string>Sign In</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="_cmdLog_in">
+        <property name="text">
+         <string>Log In</string>
         </property>
        </widget>
       </item>

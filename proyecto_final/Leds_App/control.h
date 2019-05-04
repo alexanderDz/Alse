@@ -21,6 +21,9 @@ public:
     explicit Control(QWidget *parent = 0);
     ~Control();
 
+public slots:
+    void SetUsername(QString usr){username = usr;};
+
 private slots:
     void on__cmdSt_1_clicked();
 
@@ -33,6 +36,7 @@ private slots:
 
 private:
     Ui::Control *ui;
+    QString username;
     int counterB1 = 0;
     int counterB2 = 0;
     int counterB3 = 0;
