@@ -2,6 +2,8 @@
 #define CONTROL_H
 
 #include <QMainWindow>
+#include <QTimer>
+#include <wiringPi.h>
 
 namespace Ui {
 class Control;
@@ -22,10 +24,11 @@ private slots:
 
     void on_button_3_clicked();
 
-    void maq_estados();
+    void updatetimer();
 
 private:
     Ui::Control *ui;
+    QTimer *inter;
 };
 
 #endif // CONTROL_H
