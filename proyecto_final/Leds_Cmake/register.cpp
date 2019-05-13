@@ -1,12 +1,7 @@
 #include "register.h"
 #include "ui_register.h"
-
-#include<sqlite3.h>
-#include<sstream>
-#include<QDebug>
-#include<iostream>
-
-#define Path_to_DB "../data_base/user.db"
+#include"db_local.h"
+#include<QMessageBox>
 
 using namespace std;
 
@@ -61,32 +56,16 @@ void Register::on__birthdate_dateChanged(const QDate &date)
 
 void Register::on_buttonBox_accepted()
 {
-    int rc;
-    sqlite3 *db;
-    const char* data = "Callback function called";
-    char *zErrMsg = 0;
-    rc = sqlite3_open(Path_to_DB,&db);
-    if(rc != SQLITE_OK){
-        qDebug()<<"FAILED TO OPEN";
+    if(first_name != "" && last_name != "" && national_id != 0 && user_name != "" && psswd != "" && b_date.toString() != ""){
+        db_local a;
+        a.open_database();
+        a.insertUser(first_name, last_name, national_id, user_name, psswd, b_date, age);
+        a.close_database();
+    }else{
+        QMessageBox::information(this,"REGISTRO","POR FAVOR LLENE TODOS LOS CAMPOS");
+        this->close();
     }
-    else{
-        stringstream sqlstream;
-        sqlstream << "INSERT INTO usuario(Nombre,Apellido,national_id,user_name,password,";
-        sqlstream << " birth_date,age) VALUES ( ' " ;
-        sqlstream << first_name << "' , ' " << last_name << "' , ' " << national_id << "' , ' ";
-        sqlstream << user_name << "' , ' "  << psswd << "' , ' " << b_date.toString().toStdString() << "' , '" << age << " ' ";
-        sqlstream << "); " ;
-        rc = sqlite3_exec(db, sqlstream.str().c_str(), 0, 0, &zErrMsg);
-        if( rc != SQLITE_OK ){
-           fprintf(stderr, "SQL error: %s\n", zErrMsg);
-           sqlite3_free(zErrMsg);
-           }
-        }
-    sqlite3_close(db);
 }
-
-
-
 
 int Register::calcular_edad(QDate bd)
 {

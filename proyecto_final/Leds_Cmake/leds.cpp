@@ -5,7 +5,7 @@
 #include<QDebug>
 #include<iostream>
 #include<sstream>
-
+#include"db_local.h"
 
 #define Path_to_DB "../data_base/user.db"
 
@@ -16,14 +16,12 @@ Leds::Leds(QWidget *parent) :
     ui(new Ui::Leds)
 {
     ui->setupUi(this);
-    rc = sqlite3_open(Path_to_DB,&db);
-    if(SQLITE_OK != rc)
-        ui->label_info->setText("FAILED TO OPEN DATABASE");
-    else
+    db_local a;
+    if(a.open_database())
         ui->label_info->setText("DATA BASE OPEN SUCCESSFULLY");
-    sqlite3_close(db);
-
-
+    else
+        ui->label_info->setText("FAILED TO OPEN DATABASE");
+    a.close_database();
 }
 
 Leds::~Leds()
@@ -32,12 +30,9 @@ Leds::~Leds()
 
 }
 
-
+// FALTA ARREGLAR ESTA FUNCIÓN USANDO CODIGO DE SQLITE3
 void Leds::on__cmdLog_in_clicked()
 {
-    //int rc;
-    //sqlite3 *db;
-    const char* data = "Callback function called";
     char *zErrMsg = 0;
     QString username = ui->_txtUsr_name->text();
     QString password = ui->_txtPswd->text();
@@ -53,7 +48,7 @@ void Leds::on__cmdLog_in_clicked()
         sqlstream << "FROM usuario WHERE user_name = ' ";
         sqlstream << usr <<"' AND password = ' ";
         sqlstream << psswd <<"' ;";
-        rc = sqlite3_exec(db, sqlstream.str().c_str(), 0, 0, &zErrMsg);
+        rc = sqlite3_exec(db, sqlstream.str().c_str(),0,0, &zErrMsg);
         if( rc != SQLITE_OK ){
             ui->_txtUsr_name->setText("");
             ui->_txtPswd->setText("");
@@ -70,14 +65,9 @@ void Leds::on__cmdLog_in_clicked()
             control->exec();
             if(control->close())
                 this->show();
-
-
-
         }
     }
     sqlite3_close(db);
-
-
 
 }
 
@@ -85,4 +75,16 @@ void Leds::on__cmdSign_in_clicked()
 {
     r = new Register(this);
     r->show();
+}
+
+static int callback(void *data, int argc, char **argv, char **azColName){
+   int i;
+   fprintf(stderr, "%s: ", (const char*)data);
+
+   for(i = 0; i<argc; i++){
+      printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+   }
+
+   printf("\n");
+   return 0;
 }
