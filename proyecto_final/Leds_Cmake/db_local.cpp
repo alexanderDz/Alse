@@ -41,7 +41,6 @@ bool db_local::insertUser(string first_name, string last_name,int national_id,st
        sqlite3_free(zErrMsg);
        return false;
     }else{
-        printf("datos insertados correctamente");
         return true;
         }
 }
@@ -55,6 +54,27 @@ bool db_local::searchUser(string user_name, string password)
     sqlstream << user_name <<"' AND password = ' ";
     sqlstream << password <<"' ;";
     string sql( sqlstream.str() );
-    //rc = sqlite
+}
 
+bool db_local::insertData(string username,int cb1, int cb2, int cb3)
+{
+    stringstream sqlstream;
+    int rc;
+    char *zErrMsg = 0;
+    QDateTime local = QDateTime::currentDateTime();
+
+    sqlstream << "INSERT INTO sensor(date, user, buttom_1, buttom_2, buttom_3) ";
+    sqlstream << "VALUES ( ' "<< local.toString().toStdString() << "' , ' "<<  username <<"' , ' "<< cb1 << "' , ' " << cb2 << "' , ' "<< cb3 <<"' );";
+
+    string sql( sqlstream.str() );
+
+    rc = sqlite3_exec(db, sql.c_str(), 0, 0, &zErrMsg);
+
+    if( rc != SQLITE_OK ){
+       fprintf(stderr, "SQL error: %s\n", zErrMsg);
+       sqlite3_free(zErrMsg);
+       return false;
+    }else{
+        return true;
+        }
 }

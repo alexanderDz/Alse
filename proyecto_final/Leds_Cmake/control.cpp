@@ -1,8 +1,6 @@
 #include "control.h"
 #include "ui_control.h"
 
-#define Path_to_DB "../data_base/user.db"
-
 using namespace std;
 enum estado{
     A,
@@ -116,33 +114,21 @@ void Control::on__cmdSt_3_clicked()
         }
 }
 
-
 void Control::on__cmdLog_out_clicked()
 {
-  /*if(counterB1 == 0 && counterB2 == 0 && counterB3 == 0){
-      this->close();
-  }
-  else{
-    QSqlDatabase db;
-    QSqlQuery query;
-    QDateTime local = QDateTime::currentDateTime();
-    db.setDatabaseName(Path_to_DB);
-    query.prepare("INSERT INTO sensor(date, user, buttom_1, buttom_2, buttom_3)""VALUES(:date, :user, :cb_1, :cb_2, :cb_3)");
-    query.bindValue(":date",local.toString());
-    query.bindValue(":user",username);
-    query.bindValue(":cb_1",counterB1);
-    query.bindValue(":cb_2",counterB2);
-    query.bindValue(":cb_3",counterB3);
-    if(query.exec()){
-       QMessageBox::information(this,"CONTROL","DATOS INSERTADOS CORRECTAMENTE");
-       }else{
-       QMessageBox::information(this,"CONTROL","DATOS NO INSERTADOS");
-        }
-    db.close();
-    db.removeDatabase(db.connectionName());
+if(counterB1 == 0 && counterB2 == 0 && counterB3 == 0)
     this->close();
-  }*/
-  this->close();
+else{
+    db_local db;
+    db.open_database();
+    if(db.insertData(username, counterB1,counterB2, counterB3))
+        QMessageBox::information(this,"CONTROL","DATOS INSERTADOS CORRECTAMENTE");
+    else
+        QMessageBox::information(this,"CONTROL","LOS DATOS NO FUERON INSERTADOS");
+    db.close_database();
+    this->close();
+}
+
 }
 
 
