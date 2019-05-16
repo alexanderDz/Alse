@@ -11,5 +11,5 @@ set(CMAKE_AUTOUIC ON)
 add_executable(${PROJECT_NAME}_gui "main.cpp" "leds.ui" "leds.cpp" "leds.h" "register.ui" "register.cpp" "register.h"
     "control.ui" "control.cpp" "control.h" "db_local.h" "db_local.cpp")
 
-target_link_libraries (${PROJECT_NAME}_gui sqlite3 Qt5::Core Qt5::Widgets )
+target_link_libraries (${PROJECT_NAME}_gui sqlite3 Qt5::Core Qt5::Widgets wiringPi)
 

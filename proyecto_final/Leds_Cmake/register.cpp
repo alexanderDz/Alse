@@ -59,9 +59,10 @@ void Register::on_buttonBox_accepted()
     if(first_name != "" && last_name != "" && national_id != 0 && user_name != "" && psswd != "" && b_date.toString() != ""){
         db_local a;
         sqlite3 *db;
-        string path1 = "user.db";
+        string path1 = "../data_base/user.db";
         sqlite3_open(path1.c_str(),&db);
-        a.insertUser(first_name, last_name, national_id, user_name, psswd, b_date, age);
+        if( a.insertUser(first_name, last_name, national_id, user_name, psswd, b_date, age) )
+            QMessageBox::information(this,"REGISTRO","DATOS INSERTADOS CORRECTAMENTE");
     }else{
         QMessageBox::information(this,"REGISTRO","POR FAVOR LLENE TODOS LOS CAMPOS");
         this->close();
