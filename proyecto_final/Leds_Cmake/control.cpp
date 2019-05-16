@@ -119,14 +119,14 @@ void Control::on__cmdLog_out_clicked()
 if(counterB1 == 0 && counterB2 == 0 && counterB3 == 0)
     this->close();
 else{
-    db_local db;
-    db.open_database();
-    if(db.insertData(username, counterB1,counterB2, counterB3))
-        QMessageBox::information(this,"CONTROL","DATOS INSERTADOS CORRECTAMENTE");
-    else
-        QMessageBox::information(this,"CONTROL","LOS DATOS NO FUERON INSERTADOS");
-    db.close_database();
-    this->close();
+//    db_local db;
+//    db.open_database();
+//    if(db.insertData(username, counterB1,counterB2, counterB3))
+//        QMessageBox::information(this,"CONTROL","DATOS INSERTADOS CORRECTAMENTE");
+//    else
+//        QMessageBox::information(this,"CONTROL","LOS DATOS NO FUERON INSERTADOS");
+//    db.close_database();
+//    this->close();
 }
 
 }

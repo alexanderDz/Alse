@@ -62,12 +62,13 @@ public:
      * @param password Contrsaeña que se buscará en la base de datos local.
      * @return Si los datos buscados existen y coinciden correctamente retorna 'true'.
      */
-    bool searchUser(string user_name, string password);
+    bool searchUser(string u, string pwd);
 
 private:
 
     sqlite3 *db;/**< Variable que maneja la conexión con la base de datos. */
     string path = "../data_base/user.db";/**< Variable que almacena la dirección de la base de datos local. */
+
 };
 
 #endif // DB_LOCAL_H

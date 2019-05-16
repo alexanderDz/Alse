@@ -1,0 +1,4 @@
+/home/alseuser/Documents/Proyectos/Alse/proyecto_final/build/CMakeFiles/rebuild_cache.dir
+/home/alseuser/Documents/Proyectos/Alse/proyecto_final/build/CMakeFiles/Leds_Cmake_gui.dir
+/home/alseuser/Documents/Proyectos/Alse/proyecto_final/build/CMakeFiles/edit_cache.dir
+/home/alseuser/Documents/Proyectos/Alse/proyecto_final/build/CMakeFiles/Leds_Cmake_gui_autogen.dir
