@@ -59,29 +59,6 @@ bool db_local::insertUser(string first_name, string last_name,int national_id,st
 
 bool db_local::searchUser(string u, string pwd)
 {
-//    stringstream sqlstream;
-//    char *zErrMsg = 0;
-//    int rc;
-
-//    /* Create SQL statement */
-//    sqlstream << "SELECT password from usuario where user_name = '";
-//    sqlstream << u << "' ";
-
-//    string sql( sqlstream.str() );
-//    /* Execute SQL statement */
-//    rc = sqlite3_exec(db, sql.c_str(), callback , NULL, &zErrMsg);
-//    if( rc != SQLITE_OK ){
-//       sqlite3_free(zErrMsg);
-//    } else {
-//    }
-//    cout << pswtemp <<endl;
-//    if(pswtemp == ""){
-//        return false; //no user
-//    }else if(pwd == pswtemp){
-//        return true; // correct
-//    }else {
-//        return false; // incorrect
-//    }
 
 }
 
@@ -91,7 +68,7 @@ bool db_local::insertData(string username, int cb1, int cb2, int cb3){
     int rc;
     char *zErrMsg = 0;
    QDateTime local = QDateTime::currentDateTime();
-   sqlstream << "INSERTO INTO sensor(date, user, buttom_1, buttom_2, buttom_3) ";
+   sqlstream << "INSERT INTO sensor(date, user, buttom_1, buttom_2, buttom_3) ";
    sqlstream << "VALUES ( '"<<local.toString().toStdString()<<"' , '"<<username<<"' , '"<<cb1<<"' , '"<<cb2<<"' , '"<<cb3<<"' );";
    string sql( sqlstream.str() );
    rc = sqlite3_exec(db, sql.c_str(), 0, 0, &zErrMsg);

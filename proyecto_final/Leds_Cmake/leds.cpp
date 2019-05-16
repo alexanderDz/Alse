@@ -73,6 +73,7 @@ void Leds::on__cmdLog_in_clicked()
         control = new Control(this);
         control->SetUsername(username);
         this->hide();
+        control->setModal(true);
         control->exec();
         if(control->close())
             this->show();

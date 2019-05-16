@@ -11,7 +11,7 @@
 #ifndef CONTROL_H
 #define CONTROL_H
 
-#include <wiringPi.h>
+//#include <wiringPi.h>
 #include <string>
 #include <QTimer>
 #include <QDialog>
