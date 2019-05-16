@@ -11,7 +11,7 @@
 #ifndef CONTROL_H
 #define CONTROL_H
 
-//#include <wiringPi.h>
+#include <wiringPi.h>
 #include <string>
 #include <QTimer>
 #include <QDialog>
@@ -69,9 +69,6 @@ private slots:
 private:
     Ui::Control *ui;
     string username;  /**< Variable donde se almacena el username que inicio sesión en la aplicación. */
-    int counterB1 = 0; /**< Variable que almacena la cantidad de veces que se presiona el primer boton. */
-    int counterB2 = 0; /**< Variable que almacena la cantidad de veces que se presiona el segundo boton. */
-    int counterB3 = 0; /**< Variable que almacena la cantidad de veces que se presiona el tercer boton. */
     QTimer *inter;
 };
 

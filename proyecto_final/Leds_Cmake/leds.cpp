@@ -42,7 +42,6 @@ Leds::~Leds()
 
 }
 
-// FALTA ARREGLAR ESTA FUNCIÓN USANDO CODIGO DE SQLITE3
 void Leds::on__cmdLog_in_clicked()
 {
     int rc;
@@ -75,9 +74,10 @@ void Leds::on__cmdLog_in_clicked()
         this->hide();
         control->setModal(true);
         control->exec();
-        if(control->close())
+        if(control->close()){
             this->show();
-
+            delete control;
+        }
     }else if(password == ""){
         ui->message_user->setText("Usuario no registrado.");
         ui->_txtUsr_name->setText("");
